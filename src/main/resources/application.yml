@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    #    报修系统本地数据库
+    url: jdbc:mysql://localhost:3306/accounting?serverTimezone=Asia/Shanghai
+    username: root
+    password: 111111
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
