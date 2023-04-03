@@ -34,4 +34,17 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
         ArrayList<OrderDTO> list = ordersMapper.getUserOrder(uid);
         return list;
     }
+
+    @Override
+    public ArrayList<OrderDTO> getSellOrder(Integer uid) {
+        ArrayList<OrderDTO> list = ordersMapper.getSellOrder(uid);
+        return list;
+    }
+
+    @Override
+    public ArrayList<OrderDTO> getAdventOrder(Integer uid) {
+        ArrayList<OrderDTO> list = ordersMapper.getAdventOrder(uid);
+        return list;
+
+    }
 }

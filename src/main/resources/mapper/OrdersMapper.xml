@@ -16,9 +16,38 @@
                 user_id = #{uid}
             </if>
         </where>
+    </select>
 
+    <select id="getSellOrder" resultType="com.qx.accounting.model.DTO.OrderDTO">
+            select
+        o.id,o.quantity,o.price,o.status,o.sell,o.create_time,
 
+        g.name,g.shop_name,g.`desc`,g.make_time,g.expire_time
 
+        from qx_orders o left join qx_goods g on o.goods_id = g.id
+        <where>
+            <if test="uid != null">
+                o.status = true and
+                o.sell = false and
+                user_id = #{uid}
+            </if>
+        </where>
+    </select>
 
+    <select id="getAdventOrder" resultType="com.qx.accounting.model.DTO.OrderDTO">
+            select
+        o.id,o.quantity,o.price,o.status,o.sell,o.create_time,
+
+        g.name,g.shop_name,g.`desc`,g.make_time,g.expire_time
+
+        from qx_orders o left join qx_goods g on o.goods_id = g.id
+        <where>
+            <if test="uid != null">
+                o.status = true and
+                o.sell = false and
+                user_id = #{uid} and
+                DATE_ADD(NOW(), INTERVAL 1 MONTH)   >    DATE_ADD(g.make_time, INTERVAL g.expire_time DAY)
+            </if>
+        </where>
     </select>
 </mapper>

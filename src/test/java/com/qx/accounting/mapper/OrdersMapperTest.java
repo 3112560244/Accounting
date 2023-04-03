@@ -27,4 +27,9 @@ public class OrdersMapperTest {
     public void testGetUserOrder() {
         mapper.getUserOrder(1);
     }
+
+    @Test
+    public void testGetAdventOrder() {
+        mapper.getAdventOrder(1);
+    }
 }

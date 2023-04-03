@@ -19,4 +19,9 @@ import java.util.ArrayList;
 public interface OrdersMapper extends BaseMapper<Orders> {
 
     ArrayList<OrderDTO> getUserOrder(@Param("uid") Integer uid);
+
+    ArrayList<OrderDTO> getSellOrder(@Param("uid") Integer uid);
+
+    //临期查看最近一个月的
+    ArrayList<OrderDTO> getAdventOrder(@Param("uid") Integer uid);
 }

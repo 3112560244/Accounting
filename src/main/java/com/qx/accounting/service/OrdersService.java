@@ -19,4 +19,8 @@ public interface OrdersService extends IService<Orders> {
 
 
     ArrayList<OrderDTO> getUserWaitOrder(Integer uid);
+
+    ArrayList<OrderDTO> getSellOrder(Integer uid);
+
+    ArrayList<OrderDTO> getAdventOrder(Integer uid);
 }
